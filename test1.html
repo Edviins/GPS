@@ -33,14 +33,37 @@ h1 {
 </div>
 <div>
 <p>Koordinātes:</p><br><br><br>
-
+<p id="demo"></p>
 
 <p>Adrese:</p><br><br>
 
 <button class="button">Kopēt</button>
 <button class="button" style="float: right;">Saglabāt</button><br>
 <button class="button">Meklēt *</button>
-<button class="button" style="float: right;">Refresh</button>
+<button class="button" onclick="getLocation()" style="float: right;">Refresh</button>
+
 </div>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+
+  
+
+
+</script>
 </body>
 </html>
