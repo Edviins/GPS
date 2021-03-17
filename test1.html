@@ -26,6 +26,9 @@ div {
 h1 {
   text-align: center;
 }
+.buttons{
+	float: right;
+}
 </style>
 </head>
 <div>
@@ -34,14 +37,15 @@ h1 {
 <div>
 <p>Koordinātes:</p><br><br><br>
 <p id="demo"></p>
+<input type="hiden" id="demos">
 
 <p>Adrese:</p><br><br>
 
-<button class="button">Kopēt</button>
-<button class="button" style="float: right;">Saglabāt</button><br>
-<button class="button">Meklēt *</button>
-<button class="button" onclick="getLocation()" style="float: right;">Refresh</button>
-<input type="hiden" id="demos">
+<input type="button" class="button" value="Kopēt" onclick="">
+<input type="button" class="button buttons" value="Saglabāt" onclick="">
+<br>
+<input type="button" class="button" value="Meklēt *" onclick="">
+<input type="button" class="button buttons" value="Refresh" onclick="getLocation()" >
 </div>
 
 <script>
