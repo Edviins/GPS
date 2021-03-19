@@ -41,7 +41,7 @@ h1 {
 
 <p>Adrese:</p><br><br>
 
-<input type="button" class="button" value="Kopēt" onclick="">
+<input type="button" class="button" value="Kopēt" onclick="myFunction()">
 <input type="button" class="button buttons" value="Saglabāt" onclick="">
 <br>
 <input type="button" class="button" value="Meklēt *" onclick="">
@@ -65,7 +65,13 @@ function showPosition(position) {
   x.innerHTML = `Latitude:${position.coords.latitude}<br>Longitude: ${position.coords.longitude}`;
   xx.value=`${position.coords.latitude}\t${position.coords.longitude}`;
 }
-
+function myFunction() {
+  var copyText = document.getElementById("demos");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
 
   
 
