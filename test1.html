@@ -42,7 +42,7 @@ h1 {
 <p>Adrese:</p><br><br>
 
 <input type="button" class="button" value="Kopēt" onclick="myFunction()">
-<input type="button" class="button buttons" value="Saglabāt" onclick="">
+<input type="button" class="button buttons" value="Saglabāt" onclick="saveFile()">
 <br>
 <input type="button" class="button" value="Meklēt *" onclick="">
 <input type="button" class="button buttons" value="Refresh" onclick="getLocation()" >
@@ -70,12 +70,31 @@ function myFunction() {
   copyText.select();
   copyText.setSelectionRange(0, 99999)
   document.execCommand("copy");
+  document.getElementById("demos").style.visibility = "hidden";
   alert("Copied the text: " + copyText.value);
+ 
 }
+let saveFile = () => {
+const name = document.getElementById('demos');
+let data = 
+            '\r Name: ' + name.value+'\r\n '
+			const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
 
-  
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
 
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
 
+        newLink.click(); 
+    }
 </script>
 </body>
 </html>
