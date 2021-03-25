@@ -2,6 +2,7 @@ var x = document.getElementById("demo");
 var xx = document.getElementById("demos");
 
 function getLocation() {
+<<<<<<< Updated upstream
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(showPosition);
 	} else { 
@@ -44,6 +45,21 @@ let data =
 	newLink.click(); 
 }
 
+=======
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	var x = document.getElementById("demo");
+var xx = document.getElementById("demos");
+  x.innerHTML = `Latitude:${position.coords.latitude}<br>Longitude: ${position.coords.longitude}`;
+  xx.value=`${position.coords.latitude}\t${position.coords.longitude}`;
+}
+>>>>>>> Stashed changes
 function copy() {
 	let copyText = document.getElementById("demos");
 	copyText.select();
